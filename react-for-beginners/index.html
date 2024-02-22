@@ -19,7 +19,7 @@
             const onFlip = () => {
                 reset();
                 setInverted((current) => !current);
-            }
+            };
             return (
             <div>
                 <div>
@@ -39,10 +39,10 @@
                 <input 
                     value={inverted ? amount : Math.round(amount / 60)} 
                     id="hours" 
-                    laceholder="Hours" 
+                    placeholder="Hours" 
                     type="number"
                     onChange={onChange} 
-                    disabled ={!inverted}
+                    disabled={!inverted}
                 />   
                 </div>
                 <button onClick={reset}>Reset</button>
@@ -53,8 +53,48 @@
         
         function KmToMiles()
         {
-            return <h3>KM 2 M</h3>
-        }
+            const [KmToMile, setKmToMile] = React.useState(0);
+            const [invert, setInvert] = React.useState(false);
+
+            const onChange = (event) => {
+                setKmToMile(event.target.value);
+            };
+            const reset = () => setKmToMile(0);
+            const onFlip = () => {
+                reset();
+                setInvert((current) => !current);
+            };
+            return(
+            <div>
+                <div>
+                <label for="km">km</label>
+                <input
+                    value={invert ? Math.round(KmToMile * 1000000 / 0.621371) / 1000000 : KmToMile}
+                    id="km"
+                    placeholder="km"
+                    type="number"
+                    onChange={onChange}
+                    disabled={invert}
+                />
+                </div>
+            
+                <div>
+                <label for="mile">mile</label>
+                <input
+                    value={invert ? KmToMile : KmToMile * 0.621371}
+                    id="mile"
+                    placeholder="mile"
+                    type="number"
+                    onChange={onChange}
+                    disabled={!invert}
+                />
+                </div>
+                <button onClick={reset}>Reset</button>
+                <button onClick={onFlip}>{invert ? "Turn back" : "Invert"}</button>
+            </div>
+                );
+            }
+        
         
         function App() {
             const [index, setIndex] = React.useState("xx");
