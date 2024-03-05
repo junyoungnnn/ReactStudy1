@@ -6,8 +6,9 @@
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
     <script type="text/babel">
-        function Btn({apple, onClick})
+        function Btn({apple, onClick, fonstSize=16})
         {
             console.log(apple, "was renderd");
             return (
@@ -27,13 +28,18 @@
                
             )
         }
-        const MemorizedBtn = React.memo(Btn);
+        Btn.propTypes = {
+            text: PropTypes.string.isRequired,
+            fontSize: PropTypes.number,
+        };
+
+        //const MemorizedBtn = React.memo(Btn);
         function App() {
             const [value, setValue] = React.useState("Save Changes");
-            const changeValue = () => setValue("REvert Changes");
+            const changeValue = () => setValue("Revert Changes");
             return <div>
-                <MemorizedBtn apple={value} onClick={changeValue}/>
-                <MemorizedBtn apple="continue"/>
+                <Btn apple={value} onClick={changeValue} fontSize={18}/>
+                <Btn apple="continue"/>
                 </div>;
         }
         const root = document.querySelector("#root");
