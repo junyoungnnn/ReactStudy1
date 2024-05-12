@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 import styles from "./Button.module.css";
 
 function Button({text})
@@ -7,7 +7,7 @@ function Button({text})
 }
 
 Button.propTypes = {
-    text: PropTypes.string.isRequired,
+    text: propTypes.string.isRequired,
 };
 
 export default Button;
