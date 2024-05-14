@@ -47,5 +47,5 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@jridgewell/sourcemap-codec": "^1.4.15"
   },
-  "homepage": "https://junyoungnnn.github.io/ReactStudy1"
+  "homepage": "https://junyoungnnn.github.io/reactdeploy" 
 }

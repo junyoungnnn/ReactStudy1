@@ -8,10 +8,19 @@ function App(){
     <Router>
       <Routes>
         <Route path="/movie/:id" element={<Detail/>}/>
-        <Route path="/" element={<Home />} />
+        <Route path={process.env.PUBLIC_URL + "/"} element={<Home />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
+/*
+"deploy": "gh-pages -d build",
+"predeploy": "npm run build"
+
+// 내가 만든 레포가 주소
+"homepage": "https://junyoungnnn.github.io/reactdeploy" 
+
+*/
